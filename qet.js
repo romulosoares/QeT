@@ -30,9 +30,7 @@ function buscaElemento(key, items, size, ascending, type){
 	var retorno;
 	var found = false;
 	var index;
-	console.log(type);
     items.sort(function(a, b){return a-b});
-    console.log(items);
 	switch (type){
 			case SearchType.LessThan:
 				//Encontrar o maior elemento que é menor a chave de busca (key).
@@ -46,7 +44,6 @@ function buscaElemento(key, items, size, ascending, type){
 					retorno = new buscaResult(null, null,SearchResult.NotFound);
 				}
 				else{
-					console.log("caindo vdd");
 					retorno = new buscaResult(index, items[index], SearchResult.FoundLess);
 				}
 			break;
