@@ -1,86 +1,100 @@
-function decimalPlaces(num) {
-  var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-  if (!match) { return 0; }
-  return Math.max(
-       0,
-       // Number of digits right of decimal point.
-       (match[1] ? match[1].length : 0)
-       // Adjust for scientific notation.
-       - (match[2] ? +match[2] : 0));
-}
-
-var vTotal  = 53.20;
-var qtdTotal = 2432;
-var valorUnitario = vTotal/qtdTotal;
-
-var inteiroDivisao = Math.trunc(valorUnitario); 
+//Definindo Os Testes
 
 
-var restoDivisao = vTotal%qtdTotal;
-
-
-var divisaoInversa = qtdTotal/vTotal; 
-
-console.log("vTotal= " + vTotal);
-console.log("qtdTotal= " + qtdTotal);
-console.log("valorUnitario= " + valorUnitario);
-console.log("inteiroDivisao= " + inteiroDivisao);
-console.log("restoDivisao= " + restoDivisao);
-
-console.log("divisaoInversa= " + divisaoInversa);
-
-
-console.log("inversoDaDivisaoInversa= " + 1/divisaoInversa);
-
-var valorGota = valorUnitario;
-var qtdGota = qtdTotal;
-
-console.log("Qtd de Casas deciamais de valorGota= " + decimalPlaces(valorGota));
-
-//Transformando em 2 casas demais 
-//2 = decimalPlaces(valorGota) - x
-//var x = decimalPlaces(valorGota) - 2;
-//var temp = Math.pow(10, x); //Valor que vai ser multiplicado
-//var qtdParticoes = qtdTotal/temp;
-
-//console.log("Candidato a Particao " + qtdParticoes + " particoes de " + temp + " a um valor de " + temp*valorGota); 
-var qtdDeParticoesInteirasEncontradas = 0;
-
-for (let i=999; i!=1; i--){
-	var qtdParticoes = qtdTotal /i;
+function test1(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.LessThan);
 	
-	// if (decimalPlaces(qtdParticoes) == 0){
-		// console.log("Candidato a Particao " + qtdParticoes + " particoes de " + i + " a um valor de " + i*valorGota); 
-	// }
-	if (decimalPlaces(i*valorGota) <= 2 && decimalPlaces(qtdParticoes) == 0){
-		console.warn("Candidato a Particao " + qtdParticoes + " particoes de " + i + " a um valor de " + i*valorGota);
-		console.log("Prova Real=> Qtd Total: " + qtdTotal +  " possui valor de " + valorUnitario*qtdTotal );
-		console.log("Prova Real=> Qtd Total Paticionado: " + i*qtdParticoes +  " possui valor de " + i*qtdParticoes*valorUnitario );
-		qtdDeParticoesInteirasEncontradas++;
+	console.log(retorno);
+	if (retorno.resultIndex == 4 && retorno.resultValue == 9 && retorno.searchResult==SearchResult.FoundLess){
+		return true;
 	}
 	else{
-		//console.error("Candidato a Particao " + qtdParticoes + " partcições de " + i + " a um valor de " + i*valorGota + " não atendeu as condições");
+		return false;
 	}
 }
 
-console.warn("Quantidade Partições Inteiras Encontradas= " + qtdDeParticoesInteirasEncontradas);
 
+function test2(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.LessThanEquals);
 	
-for (let i=999; i!=1; i--){
-	var qtdParticoes = qtdTotal /i;
-	
-	// if (decimalPlaces(qtdParticoes) == 0){
-		// console.log("Candidato a Particao " + qtdParticoes + " particoes de " + i + " a um valor de " + i*valorGota); 
-	// }
-	if (decimalPlaces(i*valorGota) <= 2 && decimalPlaces(qtdParticoes) <= 3 && decimalPlaces(qtdParticoes) != 0 ){
-		console.warn("Candidato a Particao " + qtdParticoes + " particoes de " + i + " a um valor de " + i*valorGota);
-		console.log("Prova Real=> Qtd Total: " + qtdTotal +  " possui valor de " + valorUnitario*qtdTotal );
-		console.log("Prova Real=> Qtd Total Paticionado: " + i*qtdParticoes +  " possui valor de " + i*qtdParticoes*valorUnitario );
-		qtdDeParticoesInteirasEncontradas++;
+	console.log(retorno);
+	if (retorno.resultIndex == 5 && retorno.resultValue == 10 && retorno.searchResult==SearchResult.FoundExact){
+		return true;
 	}
 	else{
-		//console.error("Candidato a Particao " + qtdParticoes + " partcições de " + i + " a um valor de " + i*valorGota + " não atendeu as condições");
+		return false;
 	}
 }
+
+
+function test3(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.Equals);
+	
+	console.log(retorno);
+	if (retorno.resultIndex == 5 && retorno.resultValue == 10 && retorno.searchResult==SearchResult.FoundExact){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+
+function test4(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.GreaterThanEquals);
+	
+	console.log(retorno);
+	if (retorno.resultIndex == 5 && retorno.resultValue == 10 && retorno.searchResult==SearchResult.FoundExact){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+function test5(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.GreaterThan);
+	
+	console.log(retorno);
+	if (retorno.resultIndex == 6 && retorno.resultValue == 16 && retorno.searchResult==SearchResult.FoundGreater){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+var resultArea = document.getElementById("result");
+
+//Testando
+if (test1())
+	resultArea.innerHTML += "Teste 1 passou <br>"
+else
+	resultArea.innerHTML += "Teste 1 falhou <br>"
+
+if (test2())
+	resultArea.innerHTML += "Teste 2 passou <br>"
+else
+	resultArea.innerHTML += "Teste 2 falhou <br>"
+
+if (test3())
+	resultArea.innerHTML += "Teste 3 passou <br>"
+else
+	resultArea.innerHTML += "Teste 3 falhou <br>"
+
+if (test4())
+	resultArea.innerHTML += "Teste 4 passou <br>"
+else
+	resultArea.innerHTML += "Teste 4 falhou <br>"
+
+if (test5())
+	resultArea.innerHTML += "Teste 5 passou <br>"
+else
+	resultArea.innerHTML += "Teste 5 falhou <br>"
 
 
