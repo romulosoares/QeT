@@ -69,6 +69,75 @@ function test5(){
 	}
 }
 
+//analise do valor limite
+function test6(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(16, array_to_test, array_to_test.length, true, SearchType.GreaterThan);
+	
+	console.log(retorno);
+	if (retorno.resultIndex == null && retorno.resultValue == null && retorno.searchResult==SearchResult.NotFound){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+//analise do valor limite
+function test7(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(2, array_to_test, array_to_test.length, true, SearchType.LessThan);
+	
+	console.log(retorno);
+	if (retorno.resultIndex == null && retorno.resultValue == null && retorno.searchResult==SearchResult.NotFound){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+//analise do valor limite
+function test8(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(2, array_to_test, array_to_test.length, true, SearchType.LessThanEquals);
+	
+	console.log(retorno);
+	if (retorno.resultIndex == 0 && retorno.resultValue == 2 && retorno.searchResult==SearchResult.FoundExact){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+//analise do valor limite
+function test9(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(16, array_to_test, array_to_test.length, true, SearchType.GreaterThanEquals);
+	
+	console.log(retorno);
+	if (retorno.resultIndex == 6 && retorno.resultValue == 16 && retorno.searchResult==SearchResult.FoundExact){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+function test10(){
+	var array_to_test = [2,4,6,8,9,10,16];
+	var retorno = buscaElemento(5, array_to_test, array_to_test.length, true, SearchType.Equals);
+	
+	console.log(retorno);
+	if (retorno.resultIndex == null && retorno.resultValue == null && retorno.searchResult==SearchResult.NotFound){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
 var resultArea = document.getElementById("result");
 
 //Testando
@@ -96,5 +165,28 @@ if (test5())
 	resultArea.innerHTML += "Teste 5 passou <br>"
 else
 	resultArea.innerHTML += "Teste 5 falhou <br>"
+	
+if (test6())
+	resultArea.innerHTML += "Teste 6 passou <br>"
+else
+	resultArea.innerHTML += "Teste 6 falhou <br>"
+	
+if (test7())
+	resultArea.innerHTML += "Teste 7 passou <br>"
+else
+	resultArea.innerHTML += "Teste 7 falhou <br>"
 
+if (test8())
+	resultArea.innerHTML += "Teste 8 passou <br>"
+else
+	resultArea.innerHTML += "Teste 8 falhou <br>"
 
+if (test9())
+	resultArea.innerHTML += "Teste 9 passou <br>"
+else
+	resultArea.innerHTML += "Teste 9 falhou <br>"
+
+if (test10())
+	resultArea.innerHTML += "Teste 10 passou <br>"
+else
+	resultArea.innerHTML += "Teste 10 falhou <br>"
