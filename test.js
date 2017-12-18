@@ -81,7 +81,7 @@ function test5(){
 }
 
 /* 
-Usando a tecnica de teste funcional de análise do valor limite para testar se retorna null quando o elemento não é encontrado no tipo de busca GreaterThan
+Testando o comportamento nos limites de uma partição de equivalência para verificar se retorna null quando o elemento não é encontrado no tipo de busca GreaterThan
 */
 function test6(){
 	var array_to_test = [2,4,6,8,9,10,16];
@@ -97,7 +97,7 @@ function test6(){
 }
 
 /* 
-Usando a tecnica de teste funcional de análise do valor limite para testar se retorna null quando o elemento não é encontrado no tipo de busca LessThan
+Testando o comportamento nos limites de uma partição de equivalência para verificar se retorna null quando o elemento não é encontrado no tipo de busca LessThan
 */
 function test7(){
 	var array_to_test = [2,4,6,8,9,10,16];
@@ -113,7 +113,7 @@ function test7(){
 }
 
 /* 
-Usando a tecnica de teste funcional de análise do valor limite para testar se retorna o valor correto, na posicao correta e no tipo de busca LessThanEquals
+Testando o comportamento nos limites de uma partição de equivalência para verificar se retorna o valor correto, na posicao correta e no tipo de busca LessThanEquals
 */
 function test8(){
 	var array_to_test = [2,4,6,8,9,10,16];
@@ -129,7 +129,7 @@ function test8(){
 }
 
 /* 
-Usando a tecnica de teste funcional de análise do valor limite para testar se retorna o valor correto, na posicao correta e no tipo de busca GreaterThanEquals
+Testando o comportamento nos limites de uma partição de equivalência para verificar se retorna o valor correto, na posicao correta e no tipo de busca GreaterThanEquals
 */
 function test9(){
 	var array_to_test = [2,4,6,8,9,10,16];
