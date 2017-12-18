@@ -1,6 +1,8 @@
 //Definindo Os Testes
 
-
+/* 
+Teste funcional para verificar se retorna o valor encontrado, na posição correta e no tipo de busca LessThan
+*/
 function test1(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.LessThan);
@@ -14,7 +16,9 @@ function test1(){
 	}
 }
 
-
+/* 
+Teste funcional para verificar se retorna o valor encontrado, na posição correta e no tipo de busca LessThanEquals
+*/
 function test2(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.LessThanEquals);
@@ -28,7 +32,9 @@ function test2(){
 	}
 }
 
-
+/* 
+Teste funcional para verificar retorna o valor encontrado, na posição correta e no tipo de busca Equals
+*/
 function test3(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.Equals);
@@ -42,7 +48,9 @@ function test3(){
 	}
 }
 
-
+/* 
+Teste funcional para verificar se retorna o valor encontrado, na posição correta e no tipo de busca GreaterThanEquals
+*/
 function test4(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.GreaterThanEquals);
@@ -56,6 +64,9 @@ function test4(){
 	}
 }
 
+/* 
+Teste funcional para verificar se retorna o valor encontrado, na posição correta e no tipo de busca GreaterThan
+*/
 function test5(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(10, array_to_test, array_to_test.length, true, SearchType.GreaterThan);
@@ -69,7 +80,9 @@ function test5(){
 	}
 }
 
-//analise do valor limite
+/* 
+Usando a tecnica de teste funcional de análise do valor limite para testar se retorna null quando o elemento não é encontrado no tipo de busca GreaterThan
+*/
 function test6(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(16, array_to_test, array_to_test.length, true, SearchType.GreaterThan);
@@ -83,7 +96,9 @@ function test6(){
 	}
 }
 
-//analise do valor limite
+/* 
+Usando a tecnica de teste funcional de análise do valor limite para testar se retorna null quando o elemento não é encontrado no tipo de busca LessThan
+*/
 function test7(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(2, array_to_test, array_to_test.length, true, SearchType.LessThan);
@@ -97,7 +112,9 @@ function test7(){
 	}
 }
 
-//analise do valor limite
+/* 
+Usando a tecnica de teste funcional de análise do valor limite para testar se retorna o valor correto, na posicao correta e no tipo de busca LessThanEquals
+*/
 function test8(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(2, array_to_test, array_to_test.length, true, SearchType.LessThanEquals);
@@ -111,7 +128,9 @@ function test8(){
 	}
 }
 
-//analise do valor limite
+/* 
+Usando a tecnica de teste funcional de análise do valor limite para testar se retorna o valor correto, na posicao correta e no tipo de busca GreaterThanEquals
+*/
 function test9(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(16, array_to_test, array_to_test.length, true, SearchType.GreaterThanEquals);
@@ -125,6 +144,9 @@ function test9(){
 	}
 }
 
+/* 
+Teste funcional para verificar se retorna null se o valor não foi encontrado no tipo de busca Equals
+*/
 function test10(){
 	var array_to_test = [2,4,6,8,9,10,16];
 	var retorno = buscaElemento(5, array_to_test, array_to_test.length, true, SearchType.Equals);
